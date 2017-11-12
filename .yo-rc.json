@@ -1,0 +1,9 @@
+{
+  "generator-node": {
+    "promptValues": {
+      "authorName": "Aaron Levine",
+      "authorEmail": "ald.levine@gmail.com",
+      "authorUrl": ""
+    }
+  }
+}

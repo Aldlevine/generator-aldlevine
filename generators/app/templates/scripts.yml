@@ -1,0 +1,25 @@
+build:
+  - link
+  - test
+  - docs
+
+precommit:
+  try:
+    - git checkout HEAD -- docs
+    - git stash save --keep-index -q "precommt stash"
+    - build
+    - git add package.json docs
+  finally: git stash pop -q
+
+commitmsg: commitlint -e $GIT_PARAMS
+
+docs: esdoc
+
+test: nyc mocha
+
+update:
+  - comp update -sp
+
+version:
+  - conventional-changelog -p angular -i CHANGELOG.md -s -r 0
+  - git add CHANGELOG.md

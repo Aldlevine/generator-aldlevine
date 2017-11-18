@@ -5,14 +5,14 @@
   "license": "<%= license %>",
   "author": "<%= author %> <<%= email %>>",
   "scripts": {
-    "build": "npm run link -s && npm test && npm run docs -s",
-    "precommit": "node scripts/precommit.js",
-    "commitmsg": "node scripts/commitmsg.js",
-    "docs": "esdoc",
-    "link": "comp link",
-    "test": "nyc mocha",
-    "update": "comp update -s && comp update -p",
-    "version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md"
+    "build": "ez build",
+    "precommit": "ez precommit",
+    "commitmsg": "ez commitmsg",
+    "docs": "ez docs",
+    "link": "ez link",
+    "test": "ez test",
+    "update": "ez update",
+    "version": "ez version"
   },
   "devDependencies": {
     "@commitlint/cli": "^4.3.0",
@@ -27,7 +27,8 @@
     "esdoc-standard-plugin": "^1.0.0",
     "husky": "^0.14.3",
     "mocha": "^4.0.1",
-    "nyc": "^11.3.0"
+    "nyc": "^11.3.0",
+    "scripteasy": "0.0.5"
   },
   "config": {
     "commitizen": {
@@ -50,5 +51,6 @@
     <% } %>
     "pretty": 80,
     "detective": { "parse": { "plugins": [ "objectRestSpread" ] } }
-  }
+  },
+  "scripteasy": "scripts.yml"
 }
